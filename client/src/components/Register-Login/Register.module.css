@@ -1,146 +1,199 @@
-#background-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    z-index: -1; /* Ensure the video is behind other content */
-    object-fit: cover; /* Make sure the video covers the entire area */
-}
+/* Register.module.css */
 
-/* Style the content that overlays the video */
-.content {
+.signup {
     position: relative;
-    z-index: 1;
-    text-align: center;
-    color: white;
+    height: 100vh;
     overflow: hidden;
+    
 }
 
-h1 {
-    font-size: 3rem;
-}
-
-p {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
+.backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    font-family: Arial, sans-serif;
+    object-fit: cover;
+    z-index: -1;
 }
 
-/* Form Container */
-.form-container {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px; /* Increased padding for better spacing */
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 450px; /* Increased width */
-    max-width: 90%; /* Make sure it stays responsive on smaller screens */
-    backdrop-filter: blur(10px);
-}
-.form-container-p {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px; /* Increased padding for better spacing */
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 450px; /* Increased width */
-    max-width: 90%; /* Make sure it stays responsive on smaller screens */
-    backdrop-filter: blur(10px);
-    margin-top: 10%;
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
 }
 
-.form-container h2 {
+.sign {
+    background: none; /* Transparent background with slight opacity */
+    border-radius: 8px;
+    padding: 20px;
+    width: 40vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Box shadow for better visibility */
+}
+
+.languageSelector {
+    text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
 }
 
-.input-field {
-    margin-bottom: 20px; /* Increased space between input fields */
+.languageSelector button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-.input-field label {
+.languageSelector button:hover {
+    background: #0056b3;
+}
+
+/* .formContainer {
+    display: flex;
+    flex-direction: column;
+    width:
+} */
+
+.inputField {
+    margin-bottom: 15px;
+}
+
+.inputField label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.input-field input {
+.inputField input {
     width: 100%;
-    padding: 12px; /* Slightly increased padding for inputs */
-    border: none;
+    padding: 10px;
     border-radius: 5px;
+    border: 1px solid #ddd;
     font-size: 16px;
 }
 
 .btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #3498db;
-    color: white;
+    background: #007bff;
+    color: #fff;
     border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 18px;
     cursor: pointer;
-    margin-top: 10px;
+    font-size: 16px;
+    width: 100%;
 }
 
 .btn:hover {
-    background-color: #2980b9;
+    background: #0056b3;
 }
 
-/* Toggle Text */
-.toggle-text {
-    margin-top: 10px;
-    font-size: 14px;
+.toggleText {
+    text-align: center;
+    margin-top: 15px;
 }
 
-.toggle-btn {
-    background: none;
+.toggleBtn {
+    background: transparent;
+    color: #007bff;
     border: none;
-    color: #3498db;
-    font-size: 14px;
     cursor: pointer;
-    margin-left: 5px;
+    font-size: 14px;
+    padding: 0;
 }
 
-.toggle-btn:hover {
+.toggleBtn:hover {
     text-decoration: underline;
 }
-@media (max-width:750px){
-    .form-container-p{
-        margin-top: 30%;
-    }
-    .input-field{
-        margin-right: 10px;
-        margin-left: -10px;
-    }
-    .language-selector {
-        margin-top: 10px;
-        z-index: 2;
-    }
-}
-.language-selector {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+
+/* CSS for Login component (assuming same file) */
+
+.loginContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.language-selector button {
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    border-radius: 5px;
+.backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.formContainer {
+    background: rgba(255, 255, 255, 0.7); /* Transparent background with slight opacity */
+    border-radius: 8px;
+    padding: 20px;
+    width: 70vw;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Box shadow for better visibility */
+    z-index: 1;
+
+}
+
+.inputField {
+    margin-bottom: 15px;
+}
+
+.inputField label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.inputField input {
+    width: 100%;
     padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
 }
 
-.language-selector button:hover {
-    background: rgba(255, 255, 255, 0.7);
+.btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.toggleText {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.toggleBtn {
+    background: transparent;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+}
+
+.toggleBtn:hover {
+    text-decoration: underline;
 }

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import style from './Register.module.css';
 import axios from 'axios';
-import video3 from '/public/RegisterBg.mp4';
+import video3 from '../../assets/RegisterBg.mp4';
 import Login from './Login';
-import style from "./Register.module.css";
 
 const translations = {
     en: {
@@ -36,6 +37,7 @@ const translations = {
 };
 
 const Signup = () => {
+    const navigate = useNavigate();
     const [isSignUp, setIsSignUp] = useState(true);
     const [language, setLanguage] = useState('en');
     const [formData, setFormData] = useState({
@@ -47,10 +49,6 @@ const Signup = () => {
         village: ''
     });
 
-    const redirectToLogin = () => {
-        window.location.href = '/login';
-    }
-    
     const toggleForm = () => {
         setIsSignUp(!isSignUp);
     };
@@ -79,9 +77,12 @@ const Signup = () => {
 
     const t = translations[language];
 
+    const redirectToLogin = () => {
+        navigate('/login');
+    };
+
     return (
         <div className={style.signup}>
-            {/* Video Background */}
             <video
                 autoPlay
                 loop
@@ -92,17 +93,14 @@ const Signup = () => {
                 Your browser does not support the video tag.
             </video>
 
-            {/* Overlay Content */}
             <div className={style.content}>
                 <div className={style.sign}>
-                    {/* Language Selector */}
                     <div className={style.languageSelector}>
                         <button onClick={() => changeLanguage('en')}>English</button>
                         <button onClick={() => changeLanguage('hi')}>हिन्दी</button>
                     </div>
 
                     {isSignUp ? (
-                        // Sign Up Form
                         <form className={style.formContainer} onSubmit={handleSubmit}>
                             <h2>{t.signUp}</h2>
                             <div className={style.inputField}>
@@ -132,14 +130,12 @@ const Signup = () => {
 
                             <button type="submit" className={style.btn}>{t.submitSignUp}</button>
 
-                            {/* Toggle to Login */}
                             <p className={style.toggleText}>
                                 {t.alreadyHaveAccount}
                                 <button type="button" className={style.toggleBtn} onClick={redirectToLogin}>{t.login}</button>
                             </p>
                         </form>
                     ) : (
-                        // Use the Login component
                         <Login t={t} toggleForm={toggleForm} />
                     )}
                 </div>

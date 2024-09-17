@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { Router } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
 
 function redirectToLogin() {
   window.location.href = "/login";
@@ -23,20 +21,28 @@ export default function Hero() {
 
   return (
     <>
-      <section className="hero-section" style={{ width: "100vw", height: "100vh", padding: "60px 20px", marginTop: "10px", overflow: "scroll" }}>
+      <section className="hero-section" style={{ width: "100vw", height: "100vh", position: "relative", overflow: "hidden" }}>
+        {/* Background Image */}
+        <div className="background-image"></div>
+
         <div className="container-fluid">
-          <div className="row align-items-center">
+          <div className="row align-items-center" style={{ position: "relative", zIndex: 1 }}>
             {/* Left: Vision Statement */}
             <div className="col-md-6 text-start">
-              <h1 className="display-4  fw-bold" style={{ fontSize: "4rem" }}>Transforming Agriculture Through Connection and Innovation</h1>
+              <h1 className="display-4 fw-bold" style={{ fontSize: "4rem" }}>
+                Transforming Agriculture Through Connection and Innovation
+              </h1>
               <p className="lead">
                 We aim to revolutionize agriculture by connecting farmers with buyers, creating a transparent and dynamic marketplace that fosters growth, trust, and value for all.
               </p>
 
               <div style={{ display: "flex", gap: "20px" }}>
-
-                <button type="button" className="btn btn-success" style={{ width: "100px", height: "50px", fontSize: "1.2rem" }} onClick={redirectToLogin}>Login</button>
-                <button type="button" className="btn btn-success" style={{ width: "100px", height: "50px", fontSize: "1.2rem" }} onClick={redirectToRegister}>Sign Up</button>
+                <button type="button" className="btn btn-success" style={{ width: "100px", height: "50px", fontSize: "1.2rem" }} onClick={redirectToLogin}>
+                  Login
+                </button>
+                <button type="button" className="btn btn-success" style={{ width: "100px", height: "50px", fontSize: "1.2rem" }} onClick={redirectToRegister}>
+                  Sign Up
+                </button>
               </div>
             </div>
 
@@ -79,6 +85,18 @@ export default function Hero() {
           display: flex;
           align-items: center;
           justify-content: center;
+          position: relative;
+        }
+        .background-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url('https://krishirasayan.com/storage/media/1702985048-banner-3.jpg') no-repeat center center;
+          background-size: cover;
+          opacity: 0.3;
+          z-index: -1;
         }
         .carousel-item img {
           object-fit: cover;

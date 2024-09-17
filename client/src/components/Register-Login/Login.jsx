@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import video3 from '/public/RegisterBg.mp4';
-import './Register.component.css';
+import video3 from '../../assets/RegisterBg.mp4';
+import style from './Register.module.css';
+import { Navigate } from 'react-router-dom';
 
 // Mock translations (you might have a different setup)
 const translations = {
@@ -39,32 +40,32 @@ const Login = () => {
     };
 
     return (
-        <div style={{width:"100vw", height:"100vh",}}>
-            <video autoPlay loop muted id="background-video">
+        <div className={style.loginContainer}>
+            <video autoPlay loop muted className={style.backgroundVideo}>
                 <source src={video3} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-        <form className="form-container-p" onSubmit={handleSubmit}>
-            <h2>{t.login}</h2>
+            <form className={style.formContainer} onSubmit={handleSubmit}>
+                <h2>{t.login}</h2>
 
-            <div className="input-field">
-                <label htmlFor="phone-login">{t.phone}</label>
-                <input type="text" id="phone-login" placeholder={t.phone} required />
-            </div>
+                <div className={style.inputField}>
+                    <label htmlFor="phone-login">{t.phone}</label>
+                    <input type="text" id="phone-login" placeholder={t.phone} required />
+                </div>
 
-            <div className="input-field">
-                <label htmlFor="login-password">{t.password}</label>
-                <input type="password" id="login-password" placeholder={t.password} required />
-            </div>
+                <div className={style.inputField}>
+                    <label htmlFor="login-password">{t.password}</label>
+                    <input type="password" id="login-password" placeholder={t.password} required />
+                </div>
 
-            <button type="submit" className="btn">{t.submitLogin}</button>
+                <button type="submit" className={style.btn}>{t.submitLogin}</button>
 
-            {/* Toggle to Sign Up */}
-            <p className="toggle-text">
-                {t.dontHaveAccount}
-                <button type="button" className="toggle-btn" onClick={handleSignUpRedirect}>{t.signUp}</button>
-            </p>
-        </form>
+                {/* Toggle to Sign Up */}
+                <p className={style.toggleText}>
+                    {t.dontHaveAccount}
+                    <button type="button" className={style.toggleBtn} onClick={handleSignUpRedirect}>{t.signUp}</button>
+                </p>
+            </form>
         </div>
     );
 };
