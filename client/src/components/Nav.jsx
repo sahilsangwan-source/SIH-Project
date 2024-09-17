@@ -1,3 +1,8 @@
+
+function redirectToSignup() {
+    window.location.href = "/register";
+}
+
 export default function Nav() {
     return (
       <>
@@ -62,7 +67,7 @@ export default function Nav() {
                 </li>
               </ul>
               <form className="d-flex" role="search">
-                <button className="btn btn-outline-success" type="submit">
+                <button className="btn btn-outline-success" type="submit" onClick={redirectToSignup}>
                   Sign Up
                 </button>
               </form>
