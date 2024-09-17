@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Register.component.css';
+import './Register.module.css';
 import video3 from '/public/RegisterBg.mp4';
 import Login from './Login';
 import { Navigate } from 'react-router-dom';

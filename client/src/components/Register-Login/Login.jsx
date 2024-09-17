@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import video3 from '/public/RegisterBg.mp4';
-import './Register.component.css';
+import './Register.module.css';
 
 // Mock translations (you might have a different setup)
 const translations = {

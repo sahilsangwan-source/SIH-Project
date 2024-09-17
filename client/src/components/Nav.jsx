@@ -1,18 +1,19 @@
-
-function redirectToSignup() {
-    window.location.href = "/register";
-}
+import "./Nav.module.css";
+import farmerImg from "../assets/company farmer.png";
 
 export default function Nav() {
     return (
       <>
         <nav
           className="navbar navbar-expand-lg bg-body-tertiary"
-          style={{ height: "10vh", padding: "0 15px" ,width:"100vw",background: "radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%)",overflow:"hidden"}}
+          style={{ 
+            height: "10vh", padding: "0 15px" ,width:"100vw",
+            background: "radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%)",
+            overflow:"hidden"}}
         >
-          <div className="container-fluid" style={{fontSize:"1.2rem"}}>
+          <div className="container-fluid" style={{fontSize:"1.5rem"}}>
             <a className="navbar-brand" href="#">
-              <img src="https://www.shutterstock.com/image-vector/indian-farmer-cutting-grass-illustration-260nw-2320322657.jpg" alt="Logo" style={{ height: "70px" ,borderRadius:"50%"}} />
+              <img src= {farmerImg} alt="Logo" style={{ height: "100px"}} />
             </a>
             <button
               className="navbar-toggler"
@@ -67,7 +68,7 @@ export default function Nav() {
                 </li>
               </ul>
               <form className="d-flex" role="search">
-                <button className="btn btn-outline-success" type="submit" onClick={redirectToSignup}>
+                <button className="btn btn-outline-success" style={{padding:"8px 30px" , fontSize:"25px"}} type="submit">
                   Sign Up
                 </button>
               </form>
