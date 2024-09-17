@@ -1,9 +1,8 @@
-// routes/auth.js
 const express = require('express');
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
-const JWT_SECRET = 'farmerBuyer'; // Store in environment variables
+const JWT_SECRET = process.env.JWT_SECRET || 'farmerBuyer'; // Use environment variable
 
 // Register a new user
 router.post('/register', async (req, res) => {
@@ -47,9 +46,8 @@ router.post('/login', async (req, res) => {
             return res.status(404).json({ message: 'Invalid credentials' });
         }
 
-        // Verify password
-        const isMatch = await user.matchPassword(password);
-        if (!isMatch) {
+        // Verify password (plain text comparison)
+        if (user.password !== password) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
