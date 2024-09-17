@@ -3,31 +3,39 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function AboutUs() {
     return (
-        <div className="container my-5">
-            <h1 className="text-center mb-4">About Us</h1>
+        <div className="container-fluid">
+            <h1 className="text-center mb-4" style={{padding:"70px 0px" , fontSize:"70px" ,}}>About Us</h1>
 
-            <section className="row mb-5">
-                <div className="col-lg-6">
-                    <h2>Our Story</h2>
+            <section className="row mb-5 d-flex align-items-center " style={{padding:"0 40px"}}>
+  <div className="col-lg-6">
+    <div className="card border-0 shadow-sm" style={{ borderRadius: '12px', backgroundColor: '#ffffff' }}>
+      <div className="card-body">
+        <h2 className="card-title" style={{ fontSize: '3rem', fontWeight: '600' }}>Our Story</h2>
+        <p className="card-text" style={{ color: '#666666', fontSize: '1.5rem', lineHeight: '1.6' }}>
+          Our platform is built on the principles of integrity, transparency, and collaboration. We offer a range of services designed to support both farmers and buyers, including crop bidding, price transparency, and legal government contracts. By providing real-time data and fostering direct connections, we ensure that all parties can make informed decisions and engage in transactions with confidence.
+        </p>
+        <p className="card-text" style={{ color: '#666666', fontSize: '1.5rem', lineHeight: '1.6' }}>
+          We are committed to driving positive change in the agricultural sector. Through strategic partnerships with companies and startups, we bring cutting-edge solutions and resources directly to farmers, helping them improve their operations and stay competitive. Our focus on legal and transparent processes ensures that all transactions are secure and fair, promoting trust and reliability in every interaction.
+        </p>
+       
+      </div>
+    </div>
+  </div>
 
-            <p>
-              Our platform is built on the principles of integrity, transparency, and collaboration. We offer a range of services designed to support both farmers and buyers, including crop bidding, price transparency, and legal government contracts. By providing real-time data and fostering direct connections, we ensure that all parties can make informed decisions and engage in transactions with confidence.
-            </p>
-            <p>
-              We are committed to driving positive change in the agricultural sector. Through strategic partnerships with companies and startups, we bring cutting-edge solutions and resources directly to farmers, helping them improve their operations and stay competitive. Our focus on legal and transparent processes ensures that all transactions are secure and fair, promoting trust and reliability in every interaction.
-            </p>
-            <p>
-              Join us in our mission to transform agriculture. Whether you are a farmer looking to expand your market reach or a buyer seeking quality produce, [Your Company Name] is here to provide the tools and support you need to succeed. Together, we can build a more connected, efficient, and sustainable agricultural ecosystem.
-            </p>
-                </div>
-                <div className="col-lg-6">
-                    <img
-                        src="https://plus.unsplash.com/premium_photo-1677529496297-fd0174d65941?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGVhbXxlbnwwfHwwfHx8MA%3D%3D"
-                        alt="Company Overview"
-                        className="img-fluid rounded"
-                    />
-                </div>
-            </section>
+  <div className="col-lg-6">
+    <div className="card border-0 shadow-sm" style={{ borderRadius: '12px' }}>
+      <img
+        src="https://plus.unsplash.com/premium_photo-1677529496297-fd0174d65941?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGVhbXxlbnwwfHwwfHx8MA%3D%3D"
+        alt="Company Overview"
+        className="card-img-top"
+        style={{ height: 'auto', width: '100%', borderRadius: '12px', boxShadow: '0 4px 8px rgba(0,0,0,0.2)' }}
+      />
+    </div>
+  </div>
+</section>
+
+
+
 
             <section className="mb-5">
                 <h2 className="text-center mb-4">Our Team</h2>
@@ -80,5 +88,7 @@ export default function AboutUs() {
                 <a href="mailto:info@example.com" className="btn btn-primary">Email Us</a>
             </section>
         </div>
+        
     );
 }
+

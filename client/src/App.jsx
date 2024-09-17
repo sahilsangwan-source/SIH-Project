@@ -2,28 +2,20 @@
 import Home from "./Home";
 import Login from "./components/Register-Login/Login";
 import Register from "./components/Register-Login/Register";
+
 import BDashboard from "./BuyerDashboard";
 import FDashboard from "./FarmerDashboard";
 import SearchCrop from "./components/SearchCrop";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import CropBidCard from "./components/CropBidCard";
 
+import FarmerListing from "./components/FarmerListing";
+import Nav from "./components/Nav";
+
+
 export default function App() {
-
-  // const dummyData = {
-  //   farmerName: 'Rahul Verma',
-  //   farmerLocation: 'Punjab, India',
-  //   cropQuality: 'Premium',
-  //   cropQuantity: 15, // in tons
-  //   cropBasePrice: 1800, // price per ton in INR
-  //   cropImages: [
-  //     'https://example.com/crop1.jpg',
-  //     'https://example.com/crop2.jpg',
-  //     'https://example.com/crop3.jpg',
-  //   ],
-  // };
-
   return (
    
     <Router>
@@ -32,8 +24,16 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/farmer-dashboard" element={<FDashboard />} />
+
         <Route path="/buyer-dashboard" element={<BDashboard/>}/>
         <Route path="/buyer-dashboard/crop-form" element={<SearchCrop/>} />
+
+//         <Route path="/buyer-dashboard" element={ 
+//           <>
+//             <FarmerListing/>
+//           </>
+//         } />
+
       </Routes>
     </Router>
   //  <div>
