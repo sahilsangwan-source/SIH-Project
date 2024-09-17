@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { Router } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
 
 function redirectToLogin() {
   window.location.href = "/login";
@@ -24,6 +22,7 @@ export default function Hero() {
   return (
     <>
       <section className="hero-section" style={{   width: "100vw", height: "100vh", padding: "60px 40px", marginTop:"-100px",overflow:"scroll"}}>
+        
         <div className="container-fluid">
           <div className="row align-items-center">
             {/* Left: Vision Statement */}
@@ -33,8 +32,8 @@ export default function Hero() {
                 We aim to revolutionize agriculture by connecting farmers with buyers, creating a transparent and dynamic marketplace that fosters growth, trust, and value for all.
               </p>
               <div style={{display:"flex",gap:"20px"}}>
-              <button type="button" className="btn btn-success" style={{padding:"15px 45px" , fontSize:"25px"}} >Login</button>
-              <button type="button" className="btn btn-success" style={{padding:"15px 45px" , fontSize:"25px"}} >Sign Up</button>
+              <button type="button" className="btn btn-success" style={{padding:"15px 45px" , fontSize:"25px"}} onClick={redirectToLogin}>Login</button>
+              <button type="button" className="btn btn-success" style={{padding:"15px 45px" , fontSize:"25px"}} onClick={redirectToRegister}>Sign Up</button>
               </div>
             </div>
 

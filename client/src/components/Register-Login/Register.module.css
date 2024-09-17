@@ -8,7 +8,6 @@
     object-fit: cover; /* Make sure the video covers the entire area */
 }
 
-/* Style the content that overlays the video */
 .content {
     position: relative;
     z-index: 1;

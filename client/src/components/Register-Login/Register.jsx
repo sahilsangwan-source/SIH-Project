@@ -1,10 +1,7 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Register.module.css';
 import video3 from '/public/RegisterBg.mp4';
 import Login from './Login';
-import { Navigate } from 'react-router-dom';
 
 const translations = {
     en: {
@@ -51,7 +48,8 @@ const Signup = () => {
 
     const redirectToLogin = () => {
         window.location.href = '/login';
-    }
+    };
+
     const toggleForm = () => {
         setIsSignUp(!isSignUp);
     };
@@ -80,58 +78,225 @@ const Signup = () => {
 
     const t = translations[language];
 
+    // Inline CSS styles
+    const styles = {
+        backgroundVideo: {
+            position: 'fixed',
+            right: 0,
+            bottom: 0,
+            minWidth: '100%',
+            minHeight: '100%',
+            zIndex: -1,
+            objectFit: 'cover'
+        },
+        content: {
+            position: 'relative',
+            zIndex: 1,
+            textAlign: 'center',
+            color: 'white',
+            overflow: 'hidden'
+        },
+        formContainer: {
+            background: 'rgba(255, 255, 255, 0.1)',
+            padding: '30px',
+            borderRadius: '10px',
+            margin: '20px auto',
+            width: '450px',
+            maxWidth: '90%',
+            backdropFilter: 'blur(10px)'
+        },
+        formContainerP: {
+            background: 'rgba(255, 255, 255, 0.1)',
+            padding: '30px',
+            borderRadius: '10px',
+            margin: '20px auto',
+            width: '450px',
+            maxWidth: '90%',
+            backdropFilter: 'blur(10px)',
+            marginTop: '10%'
+        },
+        h2: {
+            marginBottom: '20px',
+            fontSize: '24px'
+        },
+        inputField: {
+            marginBottom: '20px'
+        },
+        inputLabel: {
+            display: 'block',
+            marginBottom: '5px',
+            fontWeight: 'bold'
+        },
+        input: {
+            width: '100%',
+            padding: '12px',
+            border: 'none',
+            borderRadius: '5px',
+            fontSize: '16px'
+        },
+        btn: {
+            width: '100%',
+            padding: '12px',
+            backgroundColor: '#3498db',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            fontSize: '18px',
+            cursor: 'pointer',
+            marginTop: '10px'
+        },
+        btnHover: {
+            backgroundColor: '#2980b9'
+        },
+        toggleText: {
+            marginTop: '10px',
+            fontSize: '14px'
+        },
+        toggleBtn: {
+            background: 'none',
+            border: 'none',
+            color: '#3498db',
+            fontSize: '14px',
+            cursor: 'pointer',
+            marginLeft: '5px'
+        },
+        toggleBtnHover: {
+            textDecoration: 'underline'
+        },
+        languageSelector: {
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            display: 'flex',
+            gap: '10px'
+        },
+        languageButton: {
+            background: 'rgba(255, 255, 255, 0.5)',
+            border: 'none',
+            borderRadius: '5px',
+            padding: '10px',
+            fontSize: '14px',
+            cursor: 'pointer'
+        },
+        languageButtonHover: {
+            background: 'rgba(255, 255, 255, 0.7)'
+        }
+    };
+
     return (
         <div className="signup">
             {/* Video Background */}
-            <video autoPlay loop muted id="background-video">
+            <video autoPlay loop muted style={styles.backgroundVideo}>
                 <source src={video3} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
 
             {/* Overlay Content */}
-            <div className="content">
+            <div className="content" style={styles.content}>
                 <div className="sign">
                     {/* Language Selector */}
-                    <div className="language-selector">
-                        <button onClick={() => changeLanguage('en')}>English</button>
-                        <button onClick={() => changeLanguage('hi')}>हिन्दी</button>
+                    <div className="language-selector" style={styles.languageSelector}>
+                        <button
+                            style={styles.languageButton}
+                            onClick={() => changeLanguage('en')}
+                        >
+                            English
+                        </button>
+                        <button
+                            style={styles.languageButton}
+                            onClick={() => changeLanguage('hi')}
+                        >
+                            हिन्दी
+                        </button>
                     </div>
 
                     {isSignUp ? (
                         // Sign Up Form
-                        <form className="form-container" onSubmit={handleSubmit}>
-                            <h2>{t.signUp}</h2>
-                            <div className="input-field">
-                                <label htmlFor="name">{t.name}</label>
-                                <input type="text" id="name" placeholder={t.name} onChange={handleChange} required />
+                        <form className="form-container" style={styles.formContainer} onSubmit={handleSubmit}>
+                            <h2 style={styles.h2}>{t.signUp}</h2>
+                            <div className="input-field" style={styles.inputField}>
+                                <label htmlFor="name" style={styles.inputLabel}>{t.name}</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder={t.name}
+                                    onChange={handleChange}
+                                    required
+                                    style={styles.input}
+                                />
                             </div>
 
-                            <div className="input-field">
-                                <label htmlFor="phone">{t.phone}</label>
-                                <input type="text" id="phone" placeholder={t.phone} onChange={handleChange} required />
+                            <div className="input-field" style={styles.inputField}>
+                                <label htmlFor="phone" style={styles.inputLabel}>{t.phone}</label>
+                                <input
+                                    type="text"
+                                    id="phone"
+                                    placeholder={t.phone}
+                                    onChange={handleChange}
+                                    required
+                                    style={styles.input}
+                                />
                             </div>
 
-                            <div className="input-field">
-                                <label htmlFor="password">{t.password}</label>
-                                <input type="password" id="password" placeholder={t.password} onChange={handleChange} required />
+                            <div className="input-field" style={styles.inputField}>
+                                <label htmlFor="password" style={styles.inputLabel}>{t.password}</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    placeholder={t.password}
+                                    onChange={handleChange}
+                                    required
+                                    style={styles.input}
+                                />
                             </div>
 
-                            <div className="input-field">
-                                <label htmlFor="state">{t.state}</label>
-                                <input type="text" id="state" placeholder={t.state} onChange={handleChange} required />
+                            <div className="input-field" style={styles.inputField}>
+                                <label htmlFor="state" style={styles.inputLabel}>{t.state}</label>
+                                <input
+                                    type="text"
+                                    id="state"
+                                    placeholder={t.state}
+                                    onChange={handleChange}
+                                    required
+                                    style={styles.input}
+                                />
                             </div>
 
-                            <div className="input-field">
-                                <label htmlFor="district">{t.district}</label>
-                                <input type="text" id="district" placeholder={t.district} onChange={handleChange} required />
+                            <div className="input-field" style={styles.inputField}>
+                                <label htmlFor="district" style={styles.inputLabel}>{t.district}</label>
+                                <input
+                                    type="text"
+                                    id="district"
+                                    placeholder={t.district}
+                                    onChange={handleChange}
+                                    required
+                                    style={styles.input}
+                                />
                             </div>
 
-                            <button type="submit" className="btn">{t.submitSignUp}</button>
+                            <button
+                                type="submit"
+                                className="btn"
+                                style={styles.btn}
+                                onMouseOver={(e) => e.currentTarget.style.backgroundColor = styles.btnHover.backgroundColor}
+                                onMouseOut={(e) => e.currentTarget.style.backgroundColor = styles.btn.backgroundColor}
+                            >
+                                {t.submitSignUp}
+                            </button>
 
                             {/* Toggle to Login */}
-                            <p className="toggle-text">
+                            <p className="toggle-text" style={styles.toggleText}>
                                 {t.alreadyHaveAccount}
-                                <button type="button" className="toggle-btn" onClick={redirectToLogin}>{t.login}</button>
+                                <button
+                                    type="button"
+                                    className="toggle-btn"
+                                    style={styles.toggleBtn}
+                                    onMouseOver={(e) => e.currentTarget.style.textDecoration = styles.toggleBtnHover.textDecoration}
+                                    onMouseOut={(e) => e.currentTarget.style.textDecoration = 'none'}
+                                    onClick={redirectToLogin}
+                                >
+                                    {t.login}
+                                </button>
                             </p>
                         </form>
                     ) : (
