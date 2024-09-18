@@ -14,6 +14,7 @@ import CropBidCard from "./components/CropBidCard";
 import FarmerListing from "./components/FarmerListing";
 import Nav from "./components/Nav";
 
+import RegisterCrop from "./components/RegisterCrop";
 
 export default function App() {
   return (
@@ -36,6 +37,16 @@ export default function App() {
 
       </Routes>
     </Router>
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<Home />} />
+    //     <Route path="/login" element={<Login />} />
+    //     <Route path="/register" element={<Register/>}/>
+    //     <Route path="/farmer-dashboard" element={<FDashboard />} />
+    //     <Route path="/buyer-dashboard" element={<BDashboard/>}/>
+    //     <Route path="/buyer-dashboard/crop-form" element={<SearchCrop/>} />
+    //   </Routes>
+    // </Router>
   //  <div>
   //     <h2>Crop Bid Card Test</h2>
   //     {/* Render the CropBidCard with dummy data */}
@@ -48,6 +59,7 @@ export default function App() {
   //       cropImages={dummyData.cropImages}
   //     />
   //   </div>
+    <RegisterCrop/>
  
   );
 }
